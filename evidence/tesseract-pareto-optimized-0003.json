@@ -1,0 +1,42 @@
+{
+  "periodMs": 4000,
+  "method": "shared-vertex-uniform-path-smil",
+  "rows": [
+    {
+      "name": "selected-optimized",
+      "frames": 73,
+      "bytes": 77883,
+      "denseChecks": 4001,
+      "maxObservedErrorPx": 0.29158512804988806,
+      "p99ErrorPx": 0.28891365946360903,
+      "meanErrorPx": 0.16994695734965407
+    },
+    {
+      "name": "uniform-91",
+      "frames": 91,
+      "bytes": 97536,
+      "denseChecks": 4001,
+      "maxObservedErrorPx": 0.18687850874906708,
+      "p99ErrorPx": 0.1852126534334582,
+      "meanErrorPx": 0.10858923074690958
+    },
+    {
+      "name": "uniform-241",
+      "frames": 241,
+      "bytes": 254683,
+      "denseChecks": 4001,
+      "maxObservedErrorPx": 0.026586156896733684,
+      "p99ErrorPx": 0.02613984097656361,
+      "meanErrorPx": 0.015337998550564419
+    },
+    {
+      "name": "uniform-401",
+      "frames": 401,
+      "bytes": 421380,
+      "denseChecks": 4001,
+      "maxObservedErrorPx": 0.009770948966773704,
+      "p99ErrorPx": 0.009526588798157591,
+      "meanErrorPx": 0.005531169221119038
+    }
+  ]
+}

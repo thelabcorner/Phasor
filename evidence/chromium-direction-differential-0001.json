@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "name": "reverse",
+      "maxErrorPx": 0.00020599365234375,
+      "failures": []
+    },
+    {
+      "name": "reverse-infinite",
+      "maxErrorPx": 0.00020599365234375,
+      "failures": []
+    },
+    {
+      "name": "reverse-ease-in",
+      "maxErrorPx": 0.0005035400390625,
+      "failures": []
+    },
+    {
+      "name": "alternate-even",
+      "maxErrorPx": 0.00020599365234375,
+      "failures": []
+    },
+    {
+      "name": "alternate-odd",
+      "maxErrorPx": 0.00020599365234375,
+      "failures": []
+    },
+    {
+      "name": "alternate-reverse-odd",
+      "maxErrorPx": 0.0001983642578125,
+      "failures": []
+    },
+    {
+      "name": "alternate-infinite",
+      "maxErrorPx": 0.00020599365234375,
+      "failures": []
+    },
+    {
+      "name": "alternate-spline",
+      "maxErrorPx": 0.0003814697265625,
+      "failures": []
+    },
+    {
+      "name": "reverse-effect-easing",
+      "maxErrorPx": 0.0004730224609375,
+      "failures": []
+    }
+  ]
+}

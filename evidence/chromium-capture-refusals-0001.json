@@ -30,9 +30,9 @@
     "pass": true
   },
   {
-    "name": "transform capture refused",
-    "expected": "PROPERTY_UNSUPPORTED",
-    "got": "PROPERTY_UNSUPPORTED",
+    "name": "transform capture with no explicit underlying SVG baseline refused",
+    "expected": "LOWERING_UNSUPPORTED",
+    "got": "LOWERING_UNSUPPORTED",
     "pass": true
   },
   {

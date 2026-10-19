@@ -1,0 +1,17 @@
+{
+  "profile": "standalone SVG loaded via HTML img, Chromium",
+  "titlePresent": true,
+  "first": {
+    "leftChangedPixels": 0,
+    "rightChangedPixels": 11379,
+    "leftBrightPixels": 18765,
+    "rightBrightPixels": 5199
+  },
+  "second": {
+    "leftChangedPixels": 0,
+    "rightChangedPixels": 11206,
+    "leftBrightPixels": 18765,
+    "rightBrightPixels": 4821
+  },
+  "pass": true
+}

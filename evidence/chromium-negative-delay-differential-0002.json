@@ -1,0 +1,44 @@
+[
+  {
+    "name": "mid-cycle-forwards",
+    "refused": false,
+    "maxErrorPx": 0.000003814697265625,
+    "failures": []
+  },
+  {
+    "name": "mid-cycle-none",
+    "refused": false,
+    "maxErrorPx": 0.000003814697265625,
+    "failures": []
+  },
+  {
+    "name": "whole-cycle-skipped",
+    "refused": false,
+    "maxErrorPx": 0.000003814697265625,
+    "failures": []
+  },
+  {
+    "name": "ended-before-zero-forwards",
+    "refused": true,
+    "code": "LOWERING_UNSUPPORTED",
+    "expectedRefusal": true
+  },
+  {
+    "name": "ended-before-zero-none",
+    "refused": true,
+    "code": "LOWERING_UNSUPPORTED",
+    "expectedRefusal": true
+  },
+  {
+    "name": "alternate-mid-cycle",
+    "refused": false,
+    "maxErrorPx": 0.000003814697265625,
+    "failures": []
+  },
+  {
+    "name": "reverse-negative",
+    "refused": false,
+    "maxErrorPx": 0,
+    "failures": []
+  }
+]

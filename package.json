@@ -1,9 +1,18 @@
 {
-  "name": "waapi-to-svg",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@thelabcorner/phasor",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Jackson Cummings",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thelabcorner/Phasor.git"
+  },
+  "homepage": "https://github.com/thelabcorner/Phasor#readme",
+  "bugs": {
+    "url": "https://github.com/thelabcorner/Phasor/issues"
+  },
   "type": "module",
-  "description": "Conformance-driven standalone WAAPI to animated SVG compiler",
+  "description": "Proof-oriented compiler from Web Animations API to standalone animated SVG",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -12,20 +21,30 @@
     "./browser": {
       "types": "./dist/browser/capture.d.ts",
       "default": "./dist/browser/capture.js"
+    },
+    "./procedural": {
+      "types": "./dist/procedural/tesseract.d.ts",
+      "default": "./dist/procedural/tesseract.js"
     }
   },
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run build && node --test test/*.test.mjs",
+    "docs:check": "node tools/check-release-docs.mjs",
+    "hero:build": "npm run build && node tools/build-readme-hero.mjs",
     "test:chromium": "npm run build && node tools/chromium-differential.mjs && node tools/chromium-seeded-differential-v2.mjs",
     "test:image": "npm run build && node tools/svg-image-playback.mjs",
-    "test:capture": "npm run build && node tools/chromium-native-capture.mjs && node tools/chromium-capture-refusals.mjs",
+    "test:capture": "npm run build && node tools/chromium-native-capture.mjs && node tools/chromium-native-transform-capture.mjs && node tools/chromium-capture-refusals.mjs",
+    "test:directions": "npm run build && node tools/chromium-direction-differential.mjs && node tools/chromium-negative-delay-differential.mjs",
+    "test:transforms": "npm run build && node tools/chromium-transform-differential.mjs",
+    "test:tesseract": "npm run build && node tools/tesseract-pareto.mjs && node tools/chromium-tesseract-image.mjs",
     "example": "npm run build && node examples/build-circle.mjs",
     "bench": "npm run build && node tools/benchmark.mjs"
   },

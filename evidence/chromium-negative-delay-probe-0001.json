@@ -1,0 +1,116 @@
+[
+  {
+    "name": "mid-cycle-forwards",
+    "maxErrorPx": 0.000003814697265625,
+    "failures": []
+  },
+  {
+    "name": "mid-cycle-none",
+    "maxErrorPx": 0.000003814697265625,
+    "failures": []
+  },
+  {
+    "name": "whole-cycle-skipped",
+    "maxErrorPx": 0.000003814697265625,
+    "failures": []
+  },
+  {
+    "name": "ended-before-zero-forwards",
+    "maxErrorPx": 160,
+    "failures": [
+      {
+        "t": 0,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 1,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 100,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 250,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 500,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 750,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 999,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 1000,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 1250,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 1500,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 2000,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 2500,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      },
+      {
+        "t": 3000,
+        "ref": 172,
+        "actual": 12,
+        "error": 160
+      }
+    ]
+  },
+  {
+    "name": "ended-before-zero-none",
+    "maxErrorPx": 0,
+    "failures": []
+  },
+  {
+    "name": "alternate-mid-cycle",
+    "maxErrorPx": 0.000003814697265625,
+    "failures": []
+  },
+  {
+    "name": "reverse-negative",
+    "maxErrorPx": 0,
+    "failures": []
+  }
+]

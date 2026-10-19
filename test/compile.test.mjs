@@ -47,25 +47,30 @@ test("T44 infinite looping supported when effect repeats independently",()=>{
   const r=compile([{cx:0},{cx:80}],{duration:200,iterations:Infinity});
   assert.equal(elements(r.svg,"animate").item(0).getAttribute("repeatCount"),"indefinite");
 });
-test("T45 T46 T47: unsupported direction, fractional repeats, endDelay rejected",()=>{
+test("T46 T47: unsupported fractional repeats and endDelay rejected",()=>{
   const f=[{cx:0},{cx:80}];
   for (const timing of [
-    {duration:1000,direction:"alternate",iterations:2},
     {duration:1000,iterations:2.5},
     {duration:1000,endDelay:-200},
-    {duration:1000,delay:-200},
     {duration:0},
     {duration:Infinity},
     {duration:1000,iterationStart:.5},
     {duration:1000,fill:"both"}
   ]) assert.throws(()=>compile(f,timing),{code:"LOWERING_UNSUPPORTED"});
 });
+test("negative begin preserves active phase; expired pre-zero animation refuses",()=>{
+  const f=[{cx:0},{cx:80}];
+  const active=compile(f,{duration:1000,delay:-250,iterations:2,fill:"forwards"});
+  assert.equal(elements(active.svg,"animate").item(0).getAttribute("begin"),"-0.25s");
+  assert.throws(()=>compile(f,{duration:1000,delay:-2500,iterations:2,fill:"forwards"}),{code:"LOWERING_UNSUPPORTED"});
+});
 test("T48: competing effects on same attribute explicitly rejected",()=>{
   const x={target:{svgId:"dot"},keyframes:[{cx:0},{cx:2}],timing:{duration:100}};
   assert.throws(()=>compileSvgAnimation({svg:SVG,tracks:[x,x]}),{code:"LOWERING_UNSUPPORTED"});
 });
 test("T49: transform winding cannot be reduced to zero",()=>{
-  assert.throws(()=>compile([{transform:"rotate(0deg)"},{transform:"rotate(360deg)"}]),{code:"PROPERTY_UNSUPPORTED"});
+  // Missing baseline is not silently synthesized; an explicit baseline can preserve full 360-degree winding.
+  assert.throws(()=>compile([{transform:"rotate(0deg)"},{transform:"rotate(360deg)"}]),{code:"LOWERING_UNSUPPORTED"});
 });
 test("unsupported CSS bezier overshoot cannot silently become SMIL keySplines",()=>{
   assert.throws(()=>compile([{cx:0,easing:"cubic-bezier(0.5,1.5,0.5,-0.5)"},{cx:80}]),{code:"LOWERING_UNSUPPORTED"});

@@ -7,7 +7,8 @@ const SVG_NS = "http://www.w3.org/2000/svg";
 const PROPERTY_MAP: Readonly<Record<string,string>> = Object.freeze({
   opacity: "opacity",
   fillOpacity: "fill-opacity",
-  strokeOpacity: "stroke-opacity"
+  strokeOpacity: "stroke-opacity",
+  transform: "transform"
 });
 const META_KEYS = new Set(["offset","computedOffset","easing","composite"]);
 const VALID_COMPOSITE = new Set(["auto","replace"]);
@@ -23,7 +24,7 @@ export interface CaptureOptions {
  * behind this explicit function. The captured result is a plain serialized
  * CompileRequest that can be passed to the headless core in another process.
  *
- * Gate v0: independent opacity channels only, explicit SVG attribute baseline,
+ * Gate v0: opacity and single-function transform channels, explicit SVG attribute baseline,
  * no author stylesheets, no CSS inheritance or additive composition.
  */
 export function captureWaapiAnimations(
@@ -96,15 +97,22 @@ export function captureWaapiAnimations(
         if (!target.hasAttribute(mapped))
           throw new AnimationCompileError("LOWERING_UNSUPPORTED","Underlying SVG attribute baseline unresolved: "+mapped);
         const attrValue=target.getAttribute(mapped);
-        if (!attrValue || !/^(?:[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?)$/.test(attrValue))
+        if (!attrValue || mapped!=="transform" && !/^(?:[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?)$/.test(attrValue))
           throw new AnimationCompileError("LOWERING_UNSUPPORTED","Non-numeric underlying baseline: "+mapped);
-        const number=Number(value);
-        if (!Number.isFinite(number) || number<0 || number>1)
-          throw new AnimationCompileError("PROPERTY_UNSUPPORTED","Opacity value must be a finite number in [0,1]");
+        if (mapped==="transform") {
+          if (target.hasAttribute("transform-origin") || target.hasAttribute("transform-box"))
+            throw new AnimationCompileError("LOWERING_UNSUPPORTED","Transform origin/reference box are unresolved");
+          if (typeof value!=="string")
+            throw new AnimationCompileError("PROPERTY_UNSUPPORTED","Transform values must be CSS transform strings");
+        } else {
+          const number=Number(value);
+          if (!Number.isFinite(number) || number<0 || number>1)
+            throw new AnimationCompileError("PROPERTY_UNSUPPORTED","Opacity value must be a finite number in [0,1]");
+        }
         const owner=target.id+"\u0000"+mapped;
         if (targeted.has(owner) && !captured.some(x=>mapped in x))
           throw new AnimationCompileError("COMPOSITION_UNSUPPORTED","Overlapping effects require effect-stack compilation");
-        frame[mapped]=number;
+        frame[mapped]=mapped==="transform"?value as string:Number(value);
         count++;
       }
       if (!count) throw new AnimationCompileError("KEYFRAME_INVALID","Keyframe has no supported animated value");

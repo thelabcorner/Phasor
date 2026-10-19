@@ -43,7 +43,7 @@ try {
     style.remove();
     const keyframeEffect=animation.effect;
     keyframeEffect.setKeyframes([{transform:"translateX(0px)"},{transform:"translateX(10px)"}]);
-    check("transform capture refused","PROPERTY_UNSUPPORTED",()=>captureWaapiAnimations(svg,[animation]));
+    check("transform capture with no explicit underlying SVG baseline refused","LOWERING_UNSUPPORTED",()=>captureWaapiAnimations(svg,[animation]));
     keyframeEffect.setKeyframes([{opacity:1},{opacity:0}]);
     dot.removeAttribute("opacity");
     check("missing underlying baseline refused","LOWERING_UNSUPPORTED",()=>captureWaapiAnimations(svg,[animation]));

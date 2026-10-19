@@ -3,6 +3,9 @@ import type { Document as XmlDocument, Element as XmlElement, Node as XmlNode } 
 import { AnimationCompileError } from "./diagnostics.js";
 import { compileTiming } from "./timing.js";
 import { nativeSpline } from "./easing.js";
+import { lowerNativeTransform } from "./transform.js";
+import { lowerDirectedCurve } from "./direction.js";
+import type { NativeDirectedCurve } from "./direction.js";
 import type { Ease } from "./easing.js";
 import { normalizeSequenceKeyframes, normalizePropertyIndexed } from "./waapi/normalize.js";
 import type { SequenceKeyframe, PropertyIndexedKeyframes, NormalizedProperty, ScalarStop } from "./waapi/normalize.js";
@@ -28,7 +31,7 @@ export interface CompileRequest {
 export interface EffectEvidence {
   readonly target: string;
   readonly property: string;
-  readonly lowering: "native-smil-scalar";
+    readonly lowering: "native-smil-scalar" | "native-smil-transform";
   readonly rule: "structural-equivalence-candidate";
   readonly browserVerification: "not-run";
 }
@@ -109,7 +112,8 @@ function lowerStops(stops: readonly ScalarStop[], name: string, effectEase: Ease
     return reject("LOWERING_UNSUPPORTED","Full 0..1 endpoints and 2-10000 stops required for "+name);
   if (stops.some((s,i)=>s.composite!=="replace" || i>0 && s.offset<=stops[i-1]!.offset))
     return reject("LOWERING_UNSUPPORTED","Duplicate offsets/non-replace composition need a boundary/composition pass: "+name);
-  const numbers=stops.map(s=>numericValue(s.value,name));
+  // Transform value grammar is validated separately, but offset/easing proof is shared.
+  const numbers=name==="transform" ? [] : stops.map(s=>numericValue(s.value,name));
   const effectNonlinear=effectEase.kind!=="linear";
   const perKeyframeNonlinear=stops.slice(0,-1).some(s=>s.easing.kind!=="linear");
   if (effectNonlinear && (stops.length!==2 || perKeyframeNonlinear))
@@ -153,6 +157,8 @@ export function compileSvgAnimation(input: CompileRequest): CompileResult {
   const timingCache=new WeakMap<object,ReturnType<typeof compileTiming>>();
   const propertyCache=new WeakMap<object,readonly NormalizedProperty[]>();
   const lowerCache=new WeakMap<NormalizedProperty,WeakMap<Ease,ReturnType<typeof lowerStops>>>();
+  const internedEasing=new Map<string,Ease>();
+  const directionCache=new WeakMap<NormalizedProperty,Map<string,NativeDirectedCurve>>();
   for (const track of input.tracks) {
     if (!track || typeof track.target?.svgId!=="string" || !track.target.svgId ||
       !/^[A-Za-z_][\w.:-]*$/.test(track.target.svgId))
@@ -176,8 +182,9 @@ export function compileSvgAnimation(input: CompileRequest): CompileResult {
       if (track.timing && typeof track.timing==="object") timingCache.set(track.timing,timing);
     }
     if (!(timing.duration>0) || !Number.isFinite(timing.duration) || timing.duration<.001 ||
-      timing.delay<0 || timing.endDelay!==0 || timing.iterationStart!==0 ||
-      timing.direction!=="normal" || timing.iterations<1 ||
+      timing.endDelay!==0 || timing.iterationStart!==0 ||
+      (timing.delay<0 && timing.delay+timing.activeDuration<=0) ||
+      timing.iterations<1 ||
       timing.iterations!==Infinity && !Number.isSafeInteger(timing.iterations) ||
       (timing.fill!=="none" && timing.fill!=="forwards"))
       return reject("LOWERING_UNSUPPORTED","Timing outside v0 native-SMIL proven subset");
@@ -195,31 +202,63 @@ export function compileSvgAnimation(input: CompileRequest): CompileResult {
       normalizedStops+=property.stops.length;
       if (normalizedStops>(input.options?.maxKeyframes??100000))
         return reject("LIMIT_EXCEEDED","Too many normalized keyframes");
-      if (!SAFE_SCALARS.has(property.name)) return reject("PROPERTY_UNSUPPORTED","Unsupported SVG scalar: "+property.name);
+      const isTransform=property.name==="transform";
+      if (!isTransform && !SAFE_SCALARS.has(property.name)) return reject("PROPERTY_UNSUPPORTED","Unsupported SVG scalar: "+property.name);
       const owner=track.target.svgId+"\u0000"+property.name;
       if (claimed.has(owner)) return reject("LOWERING_UNSUPPORTED","Multiple effects on the same target/property require effect-stack resolution");
       claimed.add(owner);
       if (!target.hasAttribute(property.name))
         return reject("LOWERING_UNSUPPORTED",REQUIRED_BASE+property.name);
-      numericValue(target.getAttribute(property.name)!,property.name);
+      if (isTransform) {
+        if (target.hasAttribute("transform-origin") || target.hasAttribute("transform-box"))
+          return reject("LOWERING_UNSUPPORTED","Explicit transform-origin/transform-box requires reference-box and origin proof");
+      } else {
+        numericValue(target.getAttribute(property.name)!,property.name);
+      }
       let byEasing=lowerCache.get(property);
       if (!byEasing) {byEasing=new WeakMap();lowerCache.set(property,byEasing);}
-      let lower=byEasing.get(timing.easing);
-      if (!lower) {lower=lowerStops(property.stops,property.name,timing.easing);byEasing.set(timing.easing,lower);}
+      const easingKey=JSON.stringify(timing.easing);
+      const sharedEasing:Ease=internedEasing.get(easingKey)??timing.easing;
+      internedEasing.set(easingKey,sharedEasing);
+      let lower=byEasing.get(sharedEasing);
+      if (!lower) {lower=lowerStops(property.stops,property.name,sharedEasing);byEasing.set(sharedEasing,lower);}
+      let originalValues=lower.values;
+      let transformType: "translate" | "rotate" | "scale" | undefined;
+      if (isTransform) {
+        const transformed=lowerNativeTransform(property.stops,target.getAttribute("transform")!);
+        originalValues=transformed.values;
+        transformType=transformed.type;
+      }
+      let directions=directionCache.get(property);
+      if (!directions) {directions=new Map();directionCache.set(property,directions);}
+      const directionKey=timing.direction+"|"+easingKey;
+      let directed=directions.get(directionKey);
+      if (!directed) {
+        directed=lowerDirectedCurve({
+          values:originalValues,
+          keyTimes:lower.keyTimes,
+          keySplines:lower.keySplines
+        },timing.direction,property.stops.length);
+        directions.set(directionKey,directed);
+      }
+      normalizedStops+=directed.keyframeCount-property.stops.length;
+      if (normalizedStops>(input.options?.maxKeyframes??100000))
+        return reject("LIMIT_EXCEEDED","Directed curve expansion exceeds maxKeyframes");
       const attributes:Record<string,string>={
         attributeName:property.name,attributeType:"XML",begin:String(timing.delay/1000)+"s",
-        dur:String(timing.duration/1000)+"s",
-        repeatCount:timing.iterations===Infinity?"indefinite":String(timing.iterations),
+        dur:String(timing.duration*directed.durationMultiplier/1000)+"s",
+        repeatCount:timing.iterations===Infinity?"indefinite":String(timing.iterations*directed.repeatMultiplier),
         fill:timing.fill==="forwards"?"freeze":"remove",
-        calcMode:lower.keySplines===null?"linear":"spline",
-        values:lower.values,keyTimes:lower.keyTimes
+        calcMode:directed.keySplines===null?"linear":"spline",
+        values:directed.values,keyTimes:directed.keyTimes
       };
-      if (lower.keySplines !== null) attributes.keySplines=lower.keySplines;
+      if (directed.keySplines!==null) attributes.keySplines=directed.keySplines;
+      if (transformType!==undefined) attributes.type=transformType;
       scheduled.push({target,name:property.name,attributes,id:track.target.svgId});
     }
   }
   for (const entry of scheduled) {
-    const animation=doc.createElementNS(SVG_NS,"animate");
+    const animation=doc.createElementNS(SVG_NS,entry.name==="transform"?"animateTransform":"animate");
     for (const [name,value] of Object.entries(entry.attributes)) animation.setAttribute(name,value);
     entry.target.appendChild(animation);
   }
@@ -228,7 +267,7 @@ export function compileSvgAnimation(input: CompileRequest): CompileResult {
   if (bytes>(input.options?.maxBytes??5_000_000))
     return reject("LIMIT_EXCEEDED","Compiled SVG output exceeds maxBytes");
   return {svg,report:{status:"exact",guarantee:"structural-under-preconditions-not-browser-certified",effects:scheduled.map(x=>({
-    target:x.id, property:x.name,lowering:"native-smil-scalar" as const,
+    target:x.id, property:x.name,lowering:x.name==="transform"?"native-smil-transform" as const:"native-smil-scalar" as const,
     rule:"structural-equivalence-candidate" as const,browserVerification:"not-run" as const
   })),bytes}};
 }

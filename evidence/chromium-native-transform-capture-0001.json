@@ -1,0 +1,25 @@
+{
+  "runs": [
+    {
+      "name": "translate",
+      "bytes": 391,
+      "maxErrorPx": 0.0000762939453125,
+      "failures": [],
+      "sampleCount": 12
+    },
+    {
+      "name": "scale",
+      "bytes": 411,
+      "maxErrorPx": 0.000030517578125,
+      "failures": [],
+      "sampleCount": 12
+    },
+    {
+      "name": "full-rotation",
+      "bytes": 379,
+      "maxErrorPx": 0.000675201416015625,
+      "failures": [],
+      "sampleCount": 12
+    }
+  ]
+}

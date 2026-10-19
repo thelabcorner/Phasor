@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-19T08:28:21.957Z",
+  "node": "v24.21.0",
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor            ",
+  "platform": "win32",
+  "profile": "cold/warm mixed, no explicit GC",
+  "keyframeIdentity": "shared across targets",
+  "results": [
+    {
+      "targets": 1,
+      "frames": 2,
+      "numberOfRuns": 7,
+      "medianCompileMs": 0.28820000000000334,
+      "minCompileMs": 0.1606000000000023,
+      "maxCompileMs": 4.2479999999999976,
+      "outputBytes": 289
+    },
+    {
+      "targets": 10,
+      "frames": 2,
+      "numberOfRuns": 7,
+      "medianCompileMs": 0.6071000000000026,
+      "minCompileMs": 0.44309999999999405,
+      "maxCompileMs": 0.7744,
+      "outputBytes": 2017
+    },
+    {
+      "targets": 100,
+      "frames": 2,
+      "numberOfRuns": 7,
+      "medianCompileMs": 2.8851999999999975,
+      "minCompileMs": 1.7235000000000014,
+      "maxCompileMs": 6.231199999999994,
+      "outputBytes": 19477
+    },
+    {
+      "targets": 1000,
+      "frames": 2,
+      "numberOfRuns": 7,
+      "medianCompileMs": 17.3181,
+      "minCompileMs": 15.349100000000021,
+      "maxCompileMs": 21.663600000000017,
+      "outputBytes": 194887
+    },
+    {
+      "targets": 1000,
+      "frames": 10,
+      "numberOfRuns": 7,
+      "medianCompileMs": 21.336100000000016,
+      "minCompileMs": 18.206999999999994,
+      "maxCompileMs": 27.615499999999997,
+      "outputBytes": 424887
+    },
+    {
+      "targets": 1000,
+      "frames": 100,
+      "numberOfRuns": 3,
+      "medianCompileMs": 72.98750000000001,
+      "minCompileMs": 72.37390000000005,
+      "maxCompileMs": 74.58250000000004,
+      "outputBytes": 2977887
+    }
+  ]
+}

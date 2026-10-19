@@ -1,0 +1,33 @@
+{
+  "compiled": {
+    "topology": {
+      "vertices": 16,
+      "edges": 32
+    },
+    "lowering": "shared-vertex-uniform-path-smil",
+    "errorClassification": "sampled-empirical-not-certified",
+    "samples": 73,
+    "outputKeyframes": 73,
+    "observedMaxVertexResidualPx": 0.29112627039056094,
+    "coordinateQuantizationBoundPx": 0.0007071067811865476,
+    "outputBytes": 77883,
+    "exactSerializedSeam": true,
+    "candidateFrames": {
+      "adaptive": 105,
+      "uniform": 73
+    },
+    "compileMs": 45.98530000000005
+  },
+  "embedding": "data:image/svg+xml in HTML img, Chromium headless",
+  "comparisons": [
+    {
+      "pixelsWithColorDeltaOver15": 7868,
+      "maxChannelDelta": 218
+    },
+    {
+      "pixelsWithColorDeltaOver15": 10279,
+      "maxChannelDelta": 218
+    }
+  ],
+  "passed": true
+}
