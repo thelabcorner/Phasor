@@ -1,0 +1,98 @@
+{
+  "rawKeyframes": [
+    {
+      "offset": null,
+      "easing": "ease-in-out",
+      "composite": "auto",
+      "opacity": "1",
+      "computedOffset": 0
+    },
+    {
+      "offset": null,
+      "easing": "linear",
+      "composite": "auto",
+      "opacity": "0",
+      "computedOffset": 1
+    }
+  ],
+  "timing": {
+    "delay": 0,
+    "direction": "normal",
+    "duration": 1000,
+    "easing": "linear",
+    "endDelay": 0,
+    "fill": "forwards",
+    "iterationStart": 0,
+    "iterations": 2
+  },
+  "compilerBytes": 358,
+  "samples": [
+    {
+      "ms": 0,
+      "ref": 1,
+      "actual": 1,
+      "absError": 0
+    },
+    {
+      "ms": 100,
+      "ref": 0.980278,
+      "actual": 0.980278,
+      "absError": 0
+    },
+    {
+      "ms": 250,
+      "ref": 0.870838,
+      "actual": 0.870838,
+      "absError": 0
+    },
+    {
+      "ms": 500,
+      "ref": 0.5,
+      "actual": 0.5,
+      "absError": 0
+    },
+    {
+      "ms": 750,
+      "ref": 0.129162,
+      "actual": 0.129162,
+      "absError": 0
+    },
+    {
+      "ms": 999,
+      "ref": 0.00000189049,
+      "actual": 0.00000190735,
+      "absError": 1.6859999999999954e-8
+    },
+    {
+      "ms": 1000,
+      "ref": 1,
+      "actual": 1,
+      "absError": 0
+    },
+    {
+      "ms": 1250,
+      "ref": 0.870838,
+      "actual": 0.870838,
+      "absError": 0
+    },
+    {
+      "ms": 1500,
+      "ref": 0.5,
+      "actual": 0.5,
+      "absError": 0
+    },
+    {
+      "ms": 1999,
+      "ref": 0.00000189049,
+      "actual": 0.00000190735,
+      "absError": 1.6859999999999954e-8
+    },
+    {
+      "ms": 2000,
+      "ref": 0,
+      "actual": 0,
+      "absError": 0
+    }
+  ],
+  "maxObservedError": 1.6859999999999954e-8
+}

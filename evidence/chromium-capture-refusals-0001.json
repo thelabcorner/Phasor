@@ -1,0 +1,50 @@
+[
+  {
+    "name": "accepted independent opacity",
+    "expected": "accepted",
+    "got": "accepted",
+    "pass": true
+  },
+  {
+    "name": "negative playback rate",
+    "expected": "LOWERING_UNSUPPORTED",
+    "got": "LOWERING_UNSUPPORTED",
+    "pass": true
+  },
+  {
+    "name": "effect additive composite",
+    "expected": "COMPOSITION_UNSUPPORTED",
+    "got": "COMPOSITION_UNSUPPORTED",
+    "pass": true
+  },
+  {
+    "name": "untracked concurrent animation",
+    "expected": "COMPOSITION_UNSUPPORTED",
+    "got": "COMPOSITION_UNSUPPORTED",
+    "pass": true
+  },
+  {
+    "name": "document stylesheet baseline",
+    "expected": "LOWERING_UNSUPPORTED",
+    "got": "LOWERING_UNSUPPORTED",
+    "pass": true
+  },
+  {
+    "name": "transform capture refused",
+    "expected": "PROPERTY_UNSUPPORTED",
+    "got": "PROPERTY_UNSUPPORTED",
+    "pass": true
+  },
+  {
+    "name": "missing underlying baseline refused",
+    "expected": "LOWERING_UNSUPPORTED",
+    "got": "LOWERING_UNSUPPORTED",
+    "pass": true
+  },
+  {
+    "name": "disconnected DOM root refused",
+    "expected": "SVG_TARGET_INVALID",
+    "got": "SVG_TARGET_INVALID",
+    "pass": true
+  }
+]

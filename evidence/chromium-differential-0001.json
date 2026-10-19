@@ -1,0 +1,861 @@
+{
+  "engine": "Chromium (installed Chrome)",
+  "date": "2026-10-19T06:32:56.947Z",
+  "browserVersion": "see probe metadata",
+  "results": [
+    {
+      "name": "linear",
+      "samples": [
+        {
+          "t": 0,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 20,
+          "delta": -0.0000782012939453125,
+          "reference": {
+            "x": -8.399999618530273,
+            "cx": 1.6,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -8.400077819824219,
+            "cx": 1.5999199151992798,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 100,
+          "delta": 0,
+          "reference": {
+            "x": -2,
+            "cx": 8,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -2,
+            "cx": 8,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 250,
+          "delta": 0,
+          "reference": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 500,
+          "delta": 0,
+          "reference": {
+            "x": 30,
+            "cx": 40,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 30,
+            "cx": 40,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 750,
+          "delta": 0,
+          "reference": {
+            "x": 50,
+            "cx": 60,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 50,
+            "cx": 60,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 999,
+          "delta": 0,
+          "reference": {
+            "x": 69.91999816894531,
+            "cx": 79.92,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 69.91999816894531,
+            "cx": 79.91999816894531,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1000,
+          "delta": 0,
+          "reference": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1200,
+          "delta": 0,
+          "reference": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          }
+        }
+      ],
+      "maxError": 0.0000782012939453125
+    },
+    {
+      "name": "spline",
+      "samples": [
+        {
+          "t": 0,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 20,
+          "delta": -0.0000095367431640625,
+          "reference": {
+            "x": -9.938985824584961,
+            "cx": 0.0610146,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -9.938995361328125,
+            "cx": 0.06100841239094734,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 100,
+          "delta": 9.5367431640625e-7,
+          "reference": {
+            "x": -8.42220401763916,
+            "cx": 1.5778,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -8.422203063964844,
+            "cx": 1.577796220779419,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 250,
+          "delta": 0.0000457763671875,
+          "reference": {
+            "x": 0.33295440673828125,
+            "cx": 10.333,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 0.33300018310546875,
+            "cx": 10.332954406738281,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 500,
+          "delta": 0,
+          "reference": {
+            "x": 30,
+            "cx": 40,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 30,
+            "cx": 40,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 750,
+          "delta": -0.00005340576171875,
+          "reference": {
+            "x": 59.66704559326172,
+            "cx": 69.667,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 59.6669921875,
+            "cx": 69.66704559326172,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 999,
+          "delta": -0.0000457763671875,
+          "reference": {
+            "x": 69.99984741210938,
+            "cx": 79.9998,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 69.99980163574219,
+            "cx": 79.99984741210938,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1000,
+          "delta": 0,
+          "reference": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          }
+        }
+      ],
+      "maxError": 0.00005340576171875
+    },
+    {
+      "name": "two-iterations",
+      "samples": [
+        {
+          "t": 0,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 20,
+          "delta": -0.0000782012939453125,
+          "reference": {
+            "x": -8.399999618530273,
+            "cx": 1.6,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -8.400077819824219,
+            "cx": 1.5999199151992798,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 250,
+          "delta": 0,
+          "reference": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 500,
+          "delta": 0,
+          "reference": {
+            "x": 30,
+            "cx": 40,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 30,
+            "cx": 40,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 999,
+          "delta": 0,
+          "reference": {
+            "x": 69.91999816894531,
+            "cx": 79.92,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 69.91999816894531,
+            "cx": 79.91999816894531,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1000,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1001,
+          "delta": 0.0000019073486328125,
+          "reference": {
+            "x": -9.920000076293945,
+            "cx": 0.08,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -9.919998168945312,
+            "cx": 0.08000000566244125,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1500,
+          "delta": 0,
+          "reference": {
+            "x": 30,
+            "cx": 40,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 30,
+            "cx": 40,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1999,
+          "delta": -0.0001068115234375,
+          "reference": {
+            "x": 69.91999816894531,
+            "cx": 79.92,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 69.91989135742188,
+            "cx": 79.919921875,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 2000,
+          "delta": 0,
+          "reference": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 2200,
+          "delta": 0,
+          "reference": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          }
+        }
+      ],
+      "maxError": 0.0001068115234375
+    },
+    {
+      "name": "no-fill",
+      "samples": [
+        {
+          "t": 0,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 250,
+          "delta": 0,
+          "reference": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 999,
+          "delta": 0,
+          "reference": {
+            "x": 69.91999816894531,
+            "cx": 79.92,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 69.91999816894531,
+            "cx": 79.91999816894531,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1000,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1500,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        }
+      ],
+      "maxError": 0
+    },
+    {
+      "name": "infinite",
+      "samples": [
+        {
+          "t": 0,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 250,
+          "delta": 0,
+          "reference": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 999,
+          "delta": 0,
+          "reference": {
+            "x": 69.91999816894531,
+            "cx": 79.92,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 69.91999816894531,
+            "cx": 79.91999816894531,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1000,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1001,
+          "delta": 0.0000019073486328125,
+          "reference": {
+            "x": -9.920000076293945,
+            "cx": 0.08,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -9.919998168945312,
+            "cx": 0.08000000566244125,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1250,
+          "delta": 0,
+          "reference": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1999,
+          "delta": -0.0001068115234375,
+          "reference": {
+            "x": 69.91999816894531,
+            "cx": 79.92,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 69.91989135742188,
+            "cx": 79.919921875,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 2000,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        }
+      ],
+      "maxError": 0.0001068115234375
+    },
+    {
+      "name": "opacity",
+      "samples": [
+        {
+          "t": 0,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 100,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0.9
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0.9
+          }
+        },
+        {
+          "t": 250,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0.75
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0.75
+          }
+        },
+        {
+          "t": 500,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0.5
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0.5
+          }
+        },
+        {
+          "t": 750,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0.25
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0.25
+          }
+        },
+        {
+          "t": 999,
+          "delta": -1.3000000000096268e-8,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0.001
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0.000999987
+          }
+        },
+        {
+          "t": 1000,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0
+          }
+        },
+        {
+          "t": 1200,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 0
+          }
+        }
+      ],
+      "maxError": 1.3000000000096268e-8
+    },
+    {
+      "name": "positive-delay",
+      "samples": [
+        {
+          "t": 0,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 100,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 249,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 250,
+          "delta": 0,
+          "reference": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          },
+          "actual": {
+            "x": -10,
+            "cx": 0,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 500,
+          "delta": 0,
+          "reference": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 10,
+            "cx": 20,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 750,
+          "delta": 0,
+          "reference": {
+            "x": 30,
+            "cx": 40,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 30,
+            "cx": 40,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1249,
+          "delta": -0.0001068115234375,
+          "reference": {
+            "x": 69.91999816894531,
+            "cx": 79.92,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 69.91989135742188,
+            "cx": 79.919921875,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1250,
+          "delta": 0,
+          "reference": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          }
+        },
+        {
+          "t": 1500,
+          "delta": 0,
+          "reference": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          },
+          "actual": {
+            "x": 70,
+            "cx": 80,
+            "opacity": 1
+          }
+        }
+      ],
+      "maxError": 0.0001068115234375
+    }
+  ]
+}

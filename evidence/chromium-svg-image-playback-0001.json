@@ -1,0 +1,36 @@
+{
+  "profile": "SVG loaded as HTML img, data URL, Chromium headless",
+  "results": [
+    {
+      "elapsedLabel": "initial",
+      "centroidX": 32.06666666666667,
+      "paintedPixels": 240,
+      "elapsedAfterLoadMs": 219
+    },
+    {
+      "elapsedLabel": "after 400ms",
+      "centroidX": 76.40163934426229,
+      "paintedPixels": 244,
+      "elapsedAfterLoadMs": 714
+    },
+    {
+      "elapsedLabel": "after 800ms",
+      "centroidX": 122.26229508196721,
+      "paintedPixels": 244,
+      "elapsedAfterLoadMs": 1214
+    },
+    {
+      "elapsedLabel": "after 1400ms (frozen)",
+      "centroidX": 124.5,
+      "paintedPixels": 248,
+      "elapsedAfterLoadMs": 1897
+    },
+    {
+      "elapsedLabel": "later frozen-state confirmation",
+      "centroidX": 124.5,
+      "paintedPixels": 248,
+      "elapsedAfterLoadMs": 2268
+    }
+  ],
+  "pass": true
+}

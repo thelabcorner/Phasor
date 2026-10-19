@@ -1,0 +1,222 @@
+{
+  "seed": 132479505,
+  "fixtures": 80,
+  "probes": 1505,
+  "maxObservedErrorPx": 69.99649047851562,
+  "failures": [
+    {
+      "fixture": 20,
+      "time": 399.999,
+      "error": 64,
+      "timing": {
+        "duration": 200,
+        "fill": "none",
+        "iterations": 2
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "cx": 32,
+          "easing": "ease-in"
+        },
+        {
+          "offset": 0.3,
+          "cx": 31,
+          "easing": "ease-in"
+        },
+        {
+          "offset": 0.9,
+          "cx": 41,
+          "easing": "ease"
+        },
+        {
+          "offset": 1,
+          "cx": 64,
+          "easing": "ease-in"
+        }
+      ],
+      "v": {
+        "ref": -8,
+        "actual": 56
+      },
+      "status": {
+        "waapiKeyframes": 4
+      }
+    },
+    {
+      "fixture": 32,
+      "time": 1999.999,
+      "error": 69.99649047851562,
+      "timing": {
+        "duration": 1000,
+        "fill": "none",
+        "iterations": 2
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "cx": 12,
+          "easing": "ease-out"
+        },
+        {
+          "offset": 0.2,
+          "cx": 34,
+          "easing": "linear"
+        },
+        {
+          "offset": 1,
+          "cx": 70,
+          "easing": "linear"
+        }
+      ],
+      "v": {
+        "ref": -8,
+        "actual": 61.996490478515625
+      },
+      "status": {
+        "waapiKeyframes": 3
+      }
+    },
+    {
+      "fixture": 57,
+      "time": 399.999,
+      "error": 8.004280090332031,
+      "timing": {
+        "duration": 200,
+        "fill": "none",
+        "iterations": 2
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "cx": 47,
+          "easing": "ease-in-out"
+        },
+        {
+          "offset": 0.8,
+          "cx": 34,
+          "easing": "ease-in"
+        },
+        {
+          "offset": 1,
+          "cx": 8,
+          "easing": "cubic-bezier(0.21,0.05,0.74,0.87)"
+        }
+      ],
+      "v": {
+        "ref": -8,
+        "actual": 0.00428009033203125
+      },
+      "status": {
+        "waapiKeyframes": 3
+      }
+    },
+    {
+      "fixture": 66,
+      "time": 399.999,
+      "error": 64.99960327148438,
+      "timing": {
+        "duration": 200,
+        "fill": "none",
+        "iterations": 2
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "cx": 38,
+          "easing": "cubic-bezier(0.21,0.05,0.74,0.87)"
+        },
+        {
+          "offset": 0.3,
+          "cx": 27,
+          "easing": "ease"
+        },
+        {
+          "offset": 0.7,
+          "cx": 39,
+          "easing": "cubic-bezier(0.21,0.05,0.74,0.87)"
+        },
+        {
+          "offset": 1,
+          "cx": 65,
+          "easing": "ease"
+        }
+      ],
+      "v": {
+        "ref": -8,
+        "actual": 56.999603271484375
+      },
+      "status": {
+        "waapiKeyframes": 4
+      }
+    },
+    {
+      "fixture": 69,
+      "time": 399.999,
+      "error": 51,
+      "timing": {
+        "duration": 200,
+        "fill": "none",
+        "iterations": 2
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "cx": 19,
+          "easing": "ease-in"
+        },
+        {
+          "offset": 0.1,
+          "cx": 7,
+          "easing": "ease-out"
+        },
+        {
+          "offset": 0.6,
+          "cx": 57,
+          "easing": "ease-in-out"
+        },
+        {
+          "offset": 1,
+          "cx": 51,
+          "easing": "linear"
+        }
+      ],
+      "v": {
+        "ref": -8,
+        "actual": 43
+      },
+      "status": {
+        "waapiKeyframes": 4
+      }
+    },
+    {
+      "fixture": 79,
+      "time": 1999.999,
+      "error": 27,
+      "timing": {
+        "duration": 1000,
+        "fill": "none",
+        "iterations": 2
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "cx": 68,
+          "easing": "cubic-bezier(0.21,0.05,0.74,0.87)"
+        },
+        {
+          "offset": 1,
+          "cx": 27,
+          "easing": "ease-in"
+        }
+      ],
+      "v": {
+        "ref": -8,
+        "actual": 19
+      },
+      "status": {
+        "waapiKeyframes": 2
+      }
+    }
+  ]
+}
